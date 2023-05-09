@@ -1,20 +1,13 @@
+<?php
 
-<?php 
-function connectDB(){
-	//echo "OO connection<br />";
-	
-	$servername = "localhost";
-	$username = "root";
-	$password = "root";
-	$dbname ="db_mos05233";
+$sname= "localhost";
+$unmae= "root";
+$password = "root";
 
-	$conn =new mysqli($servername, $username, $password,$dbname);
+$db_name = "db_mos05233";
 
-	if ($conn->connect_error) {
-		die("Connection failed: " . $conn->connect_error);
-	}
+$conn = mysqli_connect($sname, $unmae, $password, $db_name);
 
-	//echo "Connected successfully <br /><br />";
-	return $conn;
+if (!$conn) {
+	echo "Connection failed!";
 }
-?>
