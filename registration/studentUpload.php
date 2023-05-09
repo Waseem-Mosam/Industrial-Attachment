@@ -42,7 +42,7 @@ if (isset($_POST['fName']) && isset($_POST['lName']) && isset($_POST['email']) &
 	    exit();
 	}else{
         $fullname = $repFName.' '.$repLName;
-		$sql = "INSERT INTO iams_user (id, firstName, lastName, email, password, role, preferredLocation, preferredProject, status) VALUES (NULL, '".$fName."', '".$lName."', '".$email."', '".$pass."', 'Student', '".$location."', '".$project."', 'Not Allocated');";
+		$sql = "INSERT INTO iams_user (id, firstName, lastName, email, password, role, preferredLocation, preferredProject, status) VALUES (NULL, '".$fName."', '".$lName."', '".$email."', '".md5($pass)."', 'Student', '".$location."', '".$project."', 'Not Allocated');";
     
 		if ($conn->query($sql) === TRUE) {
             header("Location: ../index.php");
