@@ -45,7 +45,7 @@ if (isset($_POST['orgName']) && isset($_POST['repFName']) && isset($_POST['repLN
 	    exit();
 	}else{
         $fullname = $repFName.' '.$repLName;
-		$sql = "INSERT INTO iams_user (id, firstName, lastName, email, password, role, preferredLocation, preferredProject, status) VALUES (NULL, '".$repFName."', '".$repLName."', '".$email."', '".$pass."', 'Organisation', '".$location."', '".$project."', 'Not Allocated');";
+		$sql = "INSERT INTO iams_user (id, firstName, lastName, email, password, role, preferredLocation, preferredProject, status) VALUES (NULL, '".$repFName."', '".$repLName."', '".$email."', '".md5($pass)."', 'Organisation', '".$location."', '".$project."', 'Not Allocated');";
         $sql .= "INSERT INTO iams_org (orgName, repName, email, location, students, project) VALUES ('".$orgName."', '".$fullname."', '".$email."', '".$location."', NULL, '".$project."');";
 
 		if ($conn->multi_query($sql) === TRUE) {
