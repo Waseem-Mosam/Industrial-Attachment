@@ -33,19 +33,19 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
             	$_SESSION['id'] = $row['id'];
                 $_SESSION['role'] = $row['role'];
                 if($_SESSION['role']=="Student"){
-                    header("Location: studentDash.php");
+                    header("Location: dashboards/studentDash.php");
 		            exit();
                 }
                 if($_SESSION['role']=="Lecturer"){
-                    header("Location: lecDash.php");
+                    header("Location: dashboards/lecDash.php");
 		            exit();
                 }
                 if($_SESSION['role']=="Organisation"){
-                    header("Location: lecDash.php");
+                    header("Location: dashboards/lecDash.php");
 		            exit();
                 }
                 if($_SESSION['role']=="Coordinator"){
-                    header("Location: lecDash.php");
+                    header("Location: dashboards/lecDash.php");
 		            exit();
                 }
 
