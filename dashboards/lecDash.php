@@ -14,6 +14,38 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
      <h1>Hello, <?php echo $_SESSION['name']; ?></h1>
      <h1>You are a <?php echo $_SESSION['role']; ?></h1>
      <a href="../logout.php">Logout</a>
+
+     <form action="functions/submitGrade.php" method="post">
+          <h2>Enter Student Grade</h2>
+
+          <?php if (isset($_GET['error'])) { ?>
+     		<p class="error"><?php echo $_GET['error']; ?></p>
+     	<?php } ?>
+
+          <?php include '../assets/dbconnect.php'?>
+          <select name="studID">
+          <option value="">Select Student ID</option>
+
+          <?php
+          $sql = "SELECT id FROM iams_user WHERE role = 'Student'";
+          $result = mysqli_query($conn, $sql);
+
+          if($result->num_rows> 0){
+               while($optionData=$result->fetch_assoc()){
+               $option =$optionData['id'];
+          ?>
+          <option value="<?php echo $option; ?>" ><?php echo $option; ?> </option>
+
+          <?php
+               }
+          }
+          ?>
+
+          <label>Enter Grade</label>
+          <input type="text" name="grade" placeholder="Grade"><br>
+
+          <button type="submit">Login</button>
+     </form>
 </body>
 </html>
 
