@@ -12,7 +12,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
 </head>
 <body>
      <div class="row">
-          <div class="col-6 main">
+          <div class="col-4 main">
                <form action="functions/uploadFile.php" method="post" enctype="multipart/form-data">
 
                <h2>Submit Report</h2>
@@ -28,7 +28,9 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
                </form>
           </div>
 
-          <div class="col-6 main">'
+          
+
+          <div class="col-4 main">'
                <h1>Account Information</h1>
                <h2>Hello, <?php echo $_SESSION['name']; ?></h2>
                <h2>You are a <?php echo $_SESSION['role']; ?></h2>

@@ -14,10 +14,10 @@
      	<?php } ?>
      	
         <label>First Name</label>
-     	<input type="text" name="fName" placeholder="First Name" pattern="[A-Za-z]" title="Can only contain letters"><br>
+     	<input type="text" name="fName" placeholder="First Name" pattern="[A-Za-z]+" title="Can only contain letters"><br>
 
         <label>Last Name</label>
-     	<input type="text" name="lName" placeholder="Last Name" pattern="[A-Za-z]" title="Can only contain letters"><br>
+     	<input type="text" name="lName" placeholder="Last Name" pattern="[A-Za-z]+" title="Can only contain letters"><br>
 
         <label>Email</label>
      	<input type="text" name="email" placeholder="Email"><br>

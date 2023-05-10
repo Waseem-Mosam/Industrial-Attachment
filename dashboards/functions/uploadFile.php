@@ -20,7 +20,7 @@ if (isset($_POST['studID']) && !empty($_FILES['pdf_file']['name'])) {
     
 
 	if(empty($studID)){
-        header("Location: ../studentDash.php?error=Student ID is required");
+        header("Location: ../studentDash.php?error=Student ID is required". $_GET['id']);
 	    exit();
 	}else{
         
