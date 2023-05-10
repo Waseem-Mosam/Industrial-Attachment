@@ -42,11 +42,11 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 		            exit();
                 }
                 if($_SESSION['role']=="Organisation"){
-                    header("Location: dashboards/lecDash.php");
+                    header("Location: dashboards/orgDash.php");
 		            exit();
                 }
                 if($_SESSION['role']=="Coordinator"){
-                    header("Location: dashboards/lecDash.php");
+                    header("Location: dashboards/coordinatorDash.php");
 		            exit();
                 }
 

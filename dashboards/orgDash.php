@@ -12,7 +12,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
 </head>
 <body>
      <h1>Hello, <?php echo $_SESSION['name']; ?></h1>
-     <h1>You are a <?php echo $_SESSION['role']; ?></h1>
+     <h1>You are an <?php echo $_SESSION['role']; ?> Representative</h1>
      <a href="../logout.php">Logout</a>
 </body>
 </html>
