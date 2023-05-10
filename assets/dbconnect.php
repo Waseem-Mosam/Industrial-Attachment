@@ -1,8 +1,8 @@
 <?php
 
 $sname= "localhost";
-$unmae= "root";
-$password = "root";
+$unmae= "mor01442";
+$password = "mor01442";
 
 $db_name = "db_mos05233";
 
