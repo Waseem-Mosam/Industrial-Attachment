@@ -46,6 +46,23 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
 
           <button type="submit">Submit</button>
      </form>
+
+     <?php
+     include '../assets/dbconnect.php';
+
+     $sql = "SELECT id, name FROM iams_report ORDER BY 'id' DESC";
+     $result = mysqli_query($conn, $sql);
+     while ($row = mysqli_fetch_object($result)){ ?>
+
+          
+          <a href="functions/download.php?id=<?php echo $row->id; ?>">
+               <?php echo $row->name; ?>
+          </a>
+
+     <?php
+     }
+     ?>
+
 </body>
 </html>
 
