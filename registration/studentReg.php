@@ -5,6 +5,8 @@
 	<link rel="stylesheet" type="text/css" href="../assets/styles.css">
 </head>
 <body>
+
+   <div class="main">
      <form action="studentUpload.php" method="post">
      	<h2>Student Registration</h2>
      	<?php if (isset($_GET['error'])) { ?>
@@ -51,5 +53,7 @@
 	   <li class="regButtons">
          <a href="../index.php">Go Back</a>
 	   </li>
+
+      </div>
 </body>
 </html>

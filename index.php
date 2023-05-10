@@ -5,6 +5,10 @@
 	<link rel="stylesheet" type="text/css" href="assets/styles.css">
 </head>
 <body>
+	<div class="main">
+
+	
+	
      <form action="login.php" method="post">
      	<h2>Login</h2>
      	<?php if (isset($_GET['error'])) { ?>
@@ -25,5 +29,6 @@
 		<a href="registration/orgReg.php">Register Organisation</a>
 	 </li>
 	 
+	 </div>
 </body>
 </html>

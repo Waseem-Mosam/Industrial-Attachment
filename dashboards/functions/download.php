@@ -15,6 +15,6 @@ header("Content-type: application/pdf");
 header('Content-disposition: inline; filename='.$row->name);
 header('Content-Transfer-Encoding: binary');
 header('Accept-Ranges: bytes');
-echo $row->file;
 
+echo $row->file;
 ?>
