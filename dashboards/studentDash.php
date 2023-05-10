@@ -13,6 +13,45 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
 <body>
      <div class="row">
           <div class="col-4 main">
+               <h1>Grade</h1>
+               <?php
+               include '../assets/dbconnect.php';
+
+               $sql = "SELECT grade FROM iams_grades WHERE id = '".$_SESSION['id']."'";
+               $result = mysqli_query($conn, $sql);
+               if($result->num_rows==1){
+                    while($optionData=$result->fetch_assoc()){
+                    $option =$optionData['grade'];
+               ?>
+               <h2>You scored: <?php echo $option?></h2>
+
+               <?php
+                    }
+               }
+               ?>
+
+          </div>
+
+          <div class="col-4 main">
+               <form action="functions/uploadLog.php" method="post" enctype="multipart/form-data">
+               
+               <h2>Submit Logbook</h2>
+
+               <label>Enter ID</label>
+               <input type="text" name="ID" placeholder="Student ID"><br>
+
+               <label>Date</label>
+               <input type="text" name="date" placeholder="YYYY-MM-DD"><br>               
+
+               <label>File</label>
+               <input type="file" name="pdfFile" accept=".pdf" required><br>
+
+               <button type="submit">Submit</button>
+
+               </form>
+
+               <br><br>
+
                <form action="functions/uploadFile.php" method="post" enctype="multipart/form-data">
 
                <h2>Submit Report</h2>
@@ -26,6 +65,8 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
                <button type="submit">Submit</button>
 
                </form>
+               
+               
           </div>
 
           

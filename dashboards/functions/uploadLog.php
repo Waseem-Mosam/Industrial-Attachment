@@ -1,7 +1,7 @@
 <?php 
 include "../../assets/dbconnect.php";
 
-if (isset($_POST['studID']) && !empty($_FILES['pdf_file']['name'])) {
+if (isset($_POST['ID']) && isset($_POST['date']) && !empty($_FILES['pdfFile']['name'])) {
 
 	function validate($data){
        $data = trim($data);
@@ -11,10 +11,12 @@ if (isset($_POST['studID']) && !empty($_FILES['pdf_file']['name'])) {
 	}
 
 	
-	$studID = validate($_POST['studID']);
+	$studID = validate($_POST['ID']);
+
+    $date = $_POST['date'];
     
-    $file_name = $_FILES['pdf_file']['name'];
-    $file_tmp = $_FILES['pdf_file']['tmp_name'];
+    $file_name = $_FILES['pdfFile']['name'];
+    $file_tmp = $_FILES['pdfFile']['tmp_name'];
 
     $pdf_blob = fopen($file_tmp, "rb");
     
@@ -24,7 +26,7 @@ if (isset($_POST['studID']) && !empty($_FILES['pdf_file']['name'])) {
 	    exit();
 	}else{
         
-		$sql = "INSERT INTO iams_report (id, name, file) VALUES ('".$studID."', '".$file_name."', '".$pdf_blob."');";
+		$sql = "INSERT INTO iams_logbook (name, date, file, id) VALUES ('".$file_name."', '". $date ."', '".$pdf_blob."',  '".$studID."');";
     
 		if ($conn->query($sql) === TRUE) {
             header("Location: ../studentDash.php");
