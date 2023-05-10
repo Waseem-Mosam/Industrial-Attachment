@@ -13,7 +13,25 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
 <body>
      <h1>Hello, <?php echo $_SESSION['name']; ?></h1><br>
      <h1>You are a <?php echo $_SESSION['role']; ?></h1>
+     <h1>Your ID is <?php echo $_SESSION['id']; ?></h1>
      <a href="../logout.php">Logout</a>
+
+     <form action="functions/uploadFile.php" method="post">
+
+          <h2>Submit Report</h2>
+
+          <label>Enter ID</label>
+          <input type="text" name="studID" placeholder="Student ID"><br>
+
+          <label>Filename</label>
+          <input type="text" name="filename" placeholder="Filename"><br>
+
+          <label>File</label>
+          <input type="file" name="file" accept=".pdf"><br>
+
+          <button type="submit">Submit</button>
+
+     </form>
 </body>
 </html>
 
