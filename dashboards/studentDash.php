@@ -29,10 +29,11 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
           </div>
 
           <div class="col-6 main">'
+               <h1>Account Information</h1>
+               <h2>Hello, <?php echo $_SESSION['name']; ?></h2>
+               <h2>You are a <?php echo $_SESSION['role']; ?></h2>
+               <h2>Your ID is <?php echo $_SESSION['id']; ?></h2>
                <a href="../logout.php">Logout</a>
-               <h1>Hello, <?php echo $_SESSION['name']; ?></h1>
-               <h1>You are a <?php echo $_SESSION['role']; ?></h1>
-               <h1>Your ID is <?php echo $_SESSION['id']; ?></h1>
           </div>
      </div>
 
