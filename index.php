@@ -18,5 +18,12 @@
 
      	<button type="submit">Login</button>
      </form>
+
+	 <h2>Need an account?</h2>
+	 <li class="regButtons">
+		<a href="registration/studentReg.php">Register Student</a>
+		<a href="registration/orgReg.php">Register Organisation</a>
+	 </li>
+	 
 </body>
 </html>

@@ -88,3 +88,7 @@ a {
 a:hover{
 	opacity: .7;
 }
+
+.regButtons {
+	list-style-type: none;
+}

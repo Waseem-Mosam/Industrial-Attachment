@@ -46,5 +46,10 @@
 
      	<button type="submit">Submit</button>
      </form>
+
+      <h2>Return to login</h2>
+	   <li class="regButtons">
+         <a href="../index.php">Go Back</a>
+	   </li>
 </body>
 </html>
