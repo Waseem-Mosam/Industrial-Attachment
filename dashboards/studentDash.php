@@ -13,6 +13,25 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
 <body>
      <div class="row">
           <div class="col-4 main">
+               <h1>Company</h1>
+               <?php
+               include '../assets/dbconnect.php';
+
+               $sql = "SELECT iams_org.orgName FROM iams_student, iams_org WHERE iams_student.project = iams_org.project AND iams_student.email = '".$_SESSION['email']."' LIMIT 1; ";
+               $result = mysqli_query($conn, $sql);
+               if($result->num_rows>0){
+                    while($optionData=$result->fetch_assoc()){
+                    $option =$optionData['orgName'];
+               ?>
+               <h2>You work for: <?php echo $option?></h2>
+               
+               <?php
+                    }
+               }
+               ?>
+               
+
+
                <h1>Grade</h1>
                <?php
                include '../assets/dbconnect.php';
