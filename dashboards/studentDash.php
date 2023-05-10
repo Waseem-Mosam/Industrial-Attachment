@@ -16,18 +16,15 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
      <h1>Your ID is <?php echo $_SESSION['id']; ?></h1>
      <a href="../logout.php">Logout</a>
 
-     <form action="functions/uploadFile.php" method="post">
+     <form action="functions/uploadFile.php" method="post" enctype="multipart/form-data">
 
           <h2>Submit Report</h2>
 
           <label>Enter ID</label>
           <input type="text" name="studID" placeholder="Student ID"><br>
 
-          <label>Filename</label>
-          <input type="text" name="filename" placeholder="Filename"><br>
-
           <label>File</label>
-          <input type="file" name="file" accept=".pdf"><br>
+          <input type="file" name="pdf_file" accept=".pdf" required><br>
 
           <button type="submit">Submit</button>
 

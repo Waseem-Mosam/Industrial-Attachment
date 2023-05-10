@@ -44,7 +44,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
           <label>Enter Grade</label>
           <input type="text" name="grade" placeholder="Grade"><br>
 
-          <button type="submit">Login</button>
+          <button type="submit">Submit</button>
      </form>
 </body>
 </html>
