@@ -1,4 +1,6 @@
 <?php 
+
+//starts user session for logged in user
 session_start();
 
 if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
@@ -13,6 +15,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
 <body>
      <div class="row">
           <div class="main col-4">
+		<!-- Displays reports and logbooks submitted by relevant students -->
                <h1 color="white">Reports</h1>
                <?php
                include '../assets/dbconnect.php';
@@ -52,6 +55,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
           
 
           <div class="main col-4">
+		  <!-- Used to enter grades of relevant students -->
                <form action="functions/submitGrade.php" method="post">
                <h2>Enter Student Grade</h2>
 
@@ -84,7 +88,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
                <button type="submit">Submit</button>
                </form>
           </div>
-
+	<!-- displays account information and logout button -->
           <div class="main col-4">
                <h1 color="white"><b>Account Information</b></h1>
                <h2>Hello, <?php echo $_SESSION['name']; ?></h2>
