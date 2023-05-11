@@ -44,11 +44,23 @@ if (isset($_POST['orgName']) && isset($_POST['repFName']) && isset($_POST['repLN
         header("Location: orgReg.php?error=Passwords must match");
 	    exit();
 	}else{
-        $fullname = $repFName.' '.$repLName;
-		$sql = "INSERT INTO iams_user (id, firstName, lastName, email, password, role, preferredLocation, preferredProject, status) VALUES (NULL, '".$repFName."', '".$repLName."', '".$email."', '".md5($pass)."', 'Organisation', '".$location."', '".$project."', 'Not Allocated');";
-        $sql .= "INSERT INTO iams_org (orgName, repName, email, location, students, project) VALUES ('".$orgName."', '".$fullname."', '".$email."', '".$location."', NULL, '".$project."');";
+		$repID = "";
+		$fullname = $repFName.' '.$repLName;
+		//insert organization representative (who is the assumed supervisor)
+		$sql = "INSERT INTO iams_user (id, firstName, lastName, email, password, role, preferredLocation, preferredProject, status) VALUES (NULL, '".$repFName."', '".$repLName."', '".$email."', '".md5($pass)."', 'Organisation', '".$location."', '".$project."', NULL);";
+		$conn->query($sql);
+		$sql = "SELECT id FROM `iams_user` WHERE `firstName` = '".$repFName."' AND `lastName` = '".$repLName."';";
+        //execute query
+		$result = mysqli_query($conn, $sql);
+        
+		while ($row = mysqli_fetch_object($result)){
+            $repID = $row->id;
+		}
+		
+		//insert organization
+        $sql = "INSERT INTO iams_org (orgName, repID, email, location, project) VALUES ('".$orgName."', '".$repID."', '".$email."', '".$location."', '".$project."');";
 
-		if ($conn->multi_query($sql) === TRUE) {
+		if ($conn->query($sql) === TRUE) {
             header("Location: ../index.php");
         } else {
             header("Location: orgReg.php?error=Error :.". $conn->error);

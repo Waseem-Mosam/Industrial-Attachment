@@ -6,9 +6,6 @@
 </head>
 <body>
 	<div class="main">
-
-	
-	
      <form action="login.php" method="post">
      	<h2>Login</h2>
      	<?php if (isset($_GET['error'])) { ?>
