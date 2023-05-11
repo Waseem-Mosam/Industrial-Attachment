@@ -8,6 +8,7 @@
 	<div class="main">
      <form action="login.php" method="post">
      	<h2>Login</h2>
+	<!-- Main login form for system -->
      	<?php if (isset($_GET['error'])) { ?>
      		<p class="error"><?php echo $_GET['error']; ?></p>
      	<?php } ?>
