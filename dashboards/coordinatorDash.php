@@ -1,4 +1,6 @@
 <?php 
+
+//starts user session for logged in user
 session_start();
 
 if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
@@ -12,6 +14,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
 </head>
 <body>
      <div class="row">
+	     <!-- dipslays account information and logout button -->
           <div class="main col-4">
                <h1>Account Information</h1>
                <h2>Hello, <?php echo $_SESSION['name']; ?></h2>
@@ -23,6 +26,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
      <div class="row">
           <div class="main col-4">
                <div class="col-4">
+		<!-- displays information of current student allocations -->
                <h1>Current Student Allocations</h1>
                <?php
                include '../assets/dbconnect.php';
@@ -42,6 +46,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
           </div>
      </div>
      <div class="row">
+	    <!-- button to redirect coordinator to allocation page-->
           <div class="main col-4">
           <a href="allocationPage.php">Allocate Students</a>
           </div>
