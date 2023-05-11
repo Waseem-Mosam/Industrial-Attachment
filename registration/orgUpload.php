@@ -1,4 +1,5 @@
 <?php 
+//establishes database connection and ensures all data has been entered on form
 include "../assets/dbconnect.php";
 
 if (isset($_POST['orgName']) && isset($_POST['repFName']) && isset($_POST['repLName']) && isset($_POST['email']) && isset($_POST['locations']) && isset($_POST['projects']) && isset($_POST['password']) && isset($_POST['confirmPass'])) {
@@ -9,7 +10,7 @@ if (isset($_POST['orgName']) && isset($_POST['repFName']) && isset($_POST['repLN
 	   $data = htmlspecialchars($data);
 	   return $data;
 	}
-
+	// validate and sanitize data
 	$orgName = validate($_POST['orgName']);
 	$repFName = validate($_POST['repFName']);
     $repLName = validate($_POST['repLName']);
