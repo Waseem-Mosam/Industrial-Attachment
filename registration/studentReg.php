@@ -8,6 +8,7 @@
 
    <div class="main">
      <form action="studentUpload.php" method="post">
+	     <!-- form used to enter student details  -->
      	<h2>Student Registration</h2>
      	<?php if (isset($_GET['error'])) { ?>
      		<p class="error"><?php echo $_GET['error']; ?></p>
@@ -48,7 +49,7 @@
 
      	<button type="submit">Submit</button>
      </form>
-
+	 <!-- button to return back to login -->
       <h2>Return to login</h2>
 	   <li class="regButtons">
          <a href="../index.php">Go Back</a>
