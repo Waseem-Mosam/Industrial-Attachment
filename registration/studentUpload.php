@@ -1,4 +1,5 @@
 <?php 
+//establishes database connection and checks if necessary data has been entered
 include "../assets/dbconnect.php";
 
 if (isset($_POST['fName']) && isset($_POST['lName']) && isset($_POST['email']) && isset($_POST['locations']) && isset($_POST['projects']) && isset($_POST['password']) && isset($_POST['confirmPass'])) {
@@ -10,7 +11,7 @@ if (isset($_POST['fName']) && isset($_POST['lName']) && isset($_POST['email']) &
 	   return $data;
 	}
 
-	
+	//validate and sanitize data
 	$fName = validate($_POST['fName']);
     $lName = validate($_POST['lName']);
     $email = validate($_POST['email']);
@@ -41,7 +42,7 @@ if (isset($_POST['fName']) && isset($_POST['lName']) && isset($_POST['email']) &
         header("Location: studentReg.php?error=Passwords must match");
 	    exit();
 	}else{
-        
+        	//insert database records and check if successful
 		$sql = "INSERT INTO iams_user (id, firstName, lastName, email, password, role, preferredLocation, preferredProject, status) VALUES (NULL, '".$fName."', '".$lName."', '".$email."', '".md5($pass)."', 'Student', '".$location."', '".$project."', 'Not Allocated');";
 		$sql .= "INSERT INTO iams_student (fName, lName, project, location, email) VALUES ('".$fName."', '".$lName."', '".$project."', '".$location."', '".$email."');";
 		if ($conn->multi_query($sql) === TRUE) {
