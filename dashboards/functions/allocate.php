@@ -1,4 +1,5 @@
 <?php 
+//establishes database connection and checks if necessary data has been entered on form 
 include "../../assets/dbconnect.php";
 
 if (isset($_POST['studID']) && isset($_POST['orgName'])) {
@@ -9,7 +10,7 @@ if (isset($_POST['studID']) && isset($_POST['orgName'])) {
 	   $data = htmlspecialchars($data);
 	   return $data;
 	}
-
+	// validate and sanitize data
 	$sid = $orgname = "";
 	$sid = validate($_POST['studID']);
     $orgname = validate($_POST['orgName']);
@@ -22,6 +23,7 @@ if (isset($_POST['studID']) && isset($_POST['orgName'])) {
         header("Location: ../allocatePage.php?error=Select Organization");
 	    exit();
 	}else{
+		//insert student and organisation data into table and update student status
 		$sql = "INSERT INTO iams_allocation (orgName,id) VALUES ( '".$orgname."','".$sid."');";
         $sql .= "UPDATE iams_user SET status = 'Allocated' WHERE id = '".$sid."'; ";
         
