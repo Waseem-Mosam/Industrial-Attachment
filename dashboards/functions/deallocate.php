@@ -1,4 +1,5 @@
 <?php 
+//establish database connection and checks if necessary data has been entered 
 include "../../assets/dbconnect.php";
 
 if (isset($_POST['studID'])) {
@@ -9,7 +10,7 @@ if (isset($_POST['studID'])) {
 	   $data = htmlspecialchars($data);
 	   return $data;
 	}
-
+	//validates and sanitizes data
 	$sid = "";
 	$sid = validate($_POST['studID']);
     
@@ -21,6 +22,7 @@ if (isset($_POST['studID'])) {
         header("Location: ../allocatePage.php?error=Select Organization");
 	    exit();
 	}else{
+		//removes student allocation
 		$sql = "DELETE FROM iams_allocation WHERE id = '".$sid."';";
         
 		if ($conn->multi_query($sql) === TRUE) {
