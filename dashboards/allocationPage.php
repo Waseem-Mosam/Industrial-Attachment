@@ -7,6 +7,7 @@
 <body>
 	<div class="row">
           <div class="col-4 main">
+		  <!-- displays all unallocated students -->
                <h3 color="white">Unallocated Students</h3>
                <?php
                include '../assets/dbconnect.php';
@@ -30,6 +31,7 @@
      <div class="row">
           <div class="col-4 main">
                <form action="functions/allocate.php" method="post">
+		        <!-- form used to allocate students to organisation -->
                     <h2>Allocate Students</h2>
 
                     <?php if (isset($_GET['error'])) { ?>
@@ -76,6 +78,7 @@
                     <button type="submit">Submit</button>
                     </form>
                     <br><br>
+		   <!-- button used to return to main dashboard of coordinator -->
                     <li class="regButtons">
                     <a href="coordinatorDash.php">Go Back</a>
                     </li>
@@ -83,6 +86,7 @@
      </div>
       <div class="row">
           <div class="col-4 main">
+		  <!-- displays all available organisations -->
                <h3 color="white">Available Organizations</h3>
                <?php
                include '../assets/dbconnect.php';
