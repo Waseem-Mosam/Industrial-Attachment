@@ -1,4 +1,5 @@
 <?php 
+//starts user session for logged in student
 session_start();
 
 if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
@@ -13,10 +14,11 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
 <body>
      <div class="row">
           <div class="col-4 main">
+		<!-- Displays information of student allocation to company -->
                <h1>Company</h1>
                <?php
                include '../assets/dbconnect.php';
-
+		//checks if student has been allocated to company
                $sql = "SELECT orgName FROM iams_allocation WHERE id = '".$_SESSION['id']."'";
                $result = mysqli_query($conn, $sql);
                if($result->num_rows>0){
@@ -31,7 +33,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
                ?>
                
 
-
+		<!-- Displays student grade if available -->
                <h1>Grade</h1>
                <?php
                include '../assets/dbconnect.php';
@@ -52,6 +54,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
           </div>
 
           <div class="col-4 main">
+		<!-- Forms to submit both logbooks or report -->
                <form action="functions/uploadLog.php" method="post" enctype="multipart/form-data">
                
                <h2>Submit Logbook</h2>
@@ -89,7 +92,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
           </div>
 
           
-
+	<!-- Displays user information and logout button -->
           <div class="col-4 main">'
                <h1>Account Information</h1>
                <h2>Hello, <?php echo $_SESSION['name']; ?></h2>
