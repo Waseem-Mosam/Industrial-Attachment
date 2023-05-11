@@ -26,7 +26,7 @@ if (isset($_POST['studID']) && isset($_POST['grade'])) {
 		exit();
 	}else{
         
-		$sql = "INSERT INTO iams_grades (id, grade) VALUES ('".$studID."', '".$grade."');";
+		$sql = "INSERT INTO iams_grades (id, mark) VALUES ('".$studID."', '".$grade."');";
     
 		if ($conn->query($sql) === TRUE) {
             header("Location: ../lecDash.php");

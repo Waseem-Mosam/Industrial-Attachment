@@ -25,6 +25,24 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
                     <a href="functions/download.php?id=<?php echo $row->id; ?>">
                          <?php echo $row->name; ?>
                     </a>
+                    <br><br>
+
+               <?php
+               }
+               ?>
+               <h1 color="white">Logboooks</h1>
+               <?php
+               include '../assets/dbconnect.php';
+
+               $sql = "SELECT id, name FROM iams_logbook ORDER BY 'id' DESC";
+               $result = mysqli_query($conn, $sql);
+               while ($row = mysqli_fetch_object($result)){ ?>
+
+                    
+                    <a href="functions/download.php?id=<?php echo $row->id; ?>">
+                         <?php echo $row->name; ?>
+                    </a>
+                    <br><br>
 
                <?php
                }

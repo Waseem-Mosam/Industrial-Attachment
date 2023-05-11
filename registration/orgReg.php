@@ -12,10 +12,10 @@
      		<p class="error"><?php echo $_GET['error']; ?></p>
      	<?php } ?>
      	<label>Organisation Name</label>
-     	<input type="text" name="orgName" placeholder="Organisation Name" pattern="[A-Za-z]+" title="Can only contain letters"><br>
+     	<input type="text" name="orgName" placeholder="Organisation Name" pattern="[A-Z a-z]+" title="Can only contain letters"><br>
 
         <label>Representative First Name</label>
-     	<input type="text" name="repFName" placeholder="First Name" pattern="[A-Za-z]+" title="Can only contain letters"><br>
+     	<input type="text" name="repFName" placeholder="First Name" pattern="[A-Za-z A-Za-z]+" title="Can only contain letters"><br>
 
         <label>Representative Last Name</label>
      	<input type="text" name="repLName" placeholder="Last Name" pattern="[A-Za-z]+" title="Can only contain letters"><br>

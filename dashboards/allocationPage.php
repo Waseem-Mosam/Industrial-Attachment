@@ -75,6 +75,10 @@
                     </select>
                     <button type="submit">Submit</button>
                     </form>
+                    <br><br>
+                    <li class="regButtons">
+                    <a href="coordinatorDash.php">Go Back</a>
+                    </li>
           </div>
      </div>
       <div class="row">

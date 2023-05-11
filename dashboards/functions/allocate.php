@@ -23,7 +23,7 @@ if (isset($_POST['studID']) && isset($_POST['orgName'])) {
 	    exit();
 	}else{
 		$sql = "INSERT INTO iams_allocation (orgName,id) VALUES ( '".$orgname."','".$sid."');";
-        $sql .= "UPDATE `iams_user` SET `status` = 'Allocated' WHERE `id` = '.$sid.'; ";
+        $sql .= "UPDATE iams_user SET status = 'Allocated' WHERE id = '".$sid."'; ";
         
 		if ($conn->multi_query($sql) === TRUE) {
             header("Location: ../allocationPage.php");

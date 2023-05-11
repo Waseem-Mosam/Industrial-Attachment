@@ -17,7 +17,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
                <?php
                include '../assets/dbconnect.php';
 
-               $sql = "SELECT iams_org.orgName FROM iams_student, iams_org WHERE iams_student.project = iams_org.project AND iams_student.email = '".$_SESSION['email']."' LIMIT 1; ";
+               $sql = "SELECT orgName FROM iams_allocation WHERE id = '".$_SESSION['id']."'";
                $result = mysqli_query($conn, $sql);
                if($result->num_rows>0){
                     while($optionData=$result->fetch_assoc()){
@@ -36,11 +36,11 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
                <?php
                include '../assets/dbconnect.php';
 
-               $sql = "SELECT grade FROM iams_grades WHERE id = '".$_SESSION['id']."'";
+               $sql = "SELECT mark FROM iams_grades WHERE id = '".$_SESSION['id']."'";
                $result = mysqli_query($conn, $sql);
                if($result->num_rows==1){
                     while($optionData=$result->fetch_assoc()){
-                    $option =$optionData['grade'];
+                    $option =$optionData['mark'];
                ?>
                <h2>You scored: <?php echo $option?></h2>
 

@@ -23,7 +23,7 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
      <div class="row">
           <div class="main col-4">
                <div class="col-4">
-               <h2>Current Student Allocations</h2>
+               <h1>Current Student Allocations</h1>
                <?php
                include '../assets/dbconnect.php';
                //select unallocated students
