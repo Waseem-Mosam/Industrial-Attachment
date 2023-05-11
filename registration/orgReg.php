@@ -7,6 +7,7 @@
 <body>
    <div class="main">
      <form action="orgUpload.php" method="post">
+	      <!-- form for entering organisation details -->
      	<h2>Organisation Registration</h2>
      	<?php if (isset($_GET['error'])) { ?>
      		<p class="error"><?php echo $_GET['error']; ?></p>
@@ -49,7 +50,7 @@
 
      	<button type="submit">Submit</button>
      </form>
-
+	 <!-- button to return to login page -->
      <h2>Return to login</h2>
 	  <li class="regButtons">
          <a href="../index.php">Go Back</a>
